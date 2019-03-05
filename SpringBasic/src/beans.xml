@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">	
+	  
+	<bean id="e1" class="com.cg.beans.Employee" autowire="constructor" init-method="m1">
+		<property name="firstname"  value="Yogini"></property>
+		<property name="lastName"  value="Naik"></property>
+		<property name="age"  value="32"></property>
+		
+		
+		</bean>
+		<bean id="d2" class="com.cg.beans.Department" >
+		<property name="deptNo"  value="1"></property>
+			<property name="deptName"  value="dev"></property>
+			</bean>
+		
+
+	<bean id="e2" class="com.cg.beans.Employee" autowire="byName">
+		<property name="firstname"  value="Yog"></property>
+		<property name="lastName"  value="Nak"></property>
+		<property name="age"  value="30"></property>
+		
+	
+		</bean>
+			<bean id="dept" class="com.cg.beans.Department" >
+		<property name="deptNo"  value="2"></property>
+			<property name="deptName"  value="admin"></property>
+			</bean>
+		
+</beans>	
+	
+	
+	<!-- using constructr injection good when all have different datatypes
+	<bean id="e1" class="com.cg.beans.Employee">
+	<constructor-arg type="String"  value="Yogini"></constructor-arg>
+	<constructor-arg type="String"  value="naik"></constructor-arg>
+	<constructor-arg type="int"  value="32"></constructor-arg>
+	-->
+	
+	
+	<!--
+	<property name="skills">
+	</property>
+	<list>
+	
+	<value>Java</value>
+	<value>Pyhton</value>
+	</list>
+	
+		
+	</property>
+	</bean>
+	-->
