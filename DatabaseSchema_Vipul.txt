@@ -1,0 +1,393 @@
+ capstore_admin;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ MOBILE_NO                                 NOT NULL VARCHAR2(10 CHAR)
+ EMAIL                                              VARCHAR2(70 CHAR)
+ NAME                                               VARCHAR2(50 CHAR)
+ PASSWORD                                           VARCHAR2(20 CHAR)
+
+cart;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CART_ID                                   NOT NULL VARCHAR2(255 CHAR)
+
+
+coupon;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ COUPON_ID                                 NOT NULL VARCHAR2(10 CHAR)
+ COUPON_APPLIED                                     NUMBER(1)
+ COUPON_CODE                                        VARCHAR2(6 CHAR)
+ DESCRIPTION                                        VARCHAR2(50 CHAR)
+ EXPIRY_DATE                                        DATE
+ 
+
+feedback;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ FEEDBACK_ID                               NOT NULL VARCHAR2(10 CHAR)
+ DESCRIPTION                                        VARCHAR2(255 CHAR)
+ RATING                                             FLOAT(126)
+
+ 
+
+
+ wishlist;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ WISHLIST_ID                               NOT NULL VARCHAR2(255 CHAR)
+
+
+
+ customer
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CUSTOMER_MOBILE_NO                        NOT NULL VARCHAR2(10 CHAR)
+ ACTIVE                                             NUMBER(1)
+ DOB                                                DATE
+ EMAIL                                              VARCHAR2(70 CHAR)
+ GENDER                                             VARCHAR2(6 CHAR)
+ NAME                                               VARCHAR2(50 CHAR)
+ PASSWORD                                           VARCHAR2(20 CHAR)
+ CART_ID                                            VARCHAR2(255 CHAR)
+ WISHLIST_ID                                        VARCHAR2(255 CHAR)
+\
+
+
+savedcard;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ SNO                                       NOT NULL VARCHAR2(255 CHAR)
+ CARDNO                                             VARCHAR2(16 CHAR)
+ CARD_HOLDER_NAME                                   VARCHAR2(50 CHAR)
+ EXPIRY_YEAR                                        NUMBER(10)
+ EXPIRYMONTH                                        NUMBER(10)
+ CUSTOMER_ID                                        VARCHAR2(10 CHAR)
+
+images;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ IMAGE_ID                                  NOT NULL VARCHAR2(255 CHAR)
+ URL                                                VARCHAR2(255 CHAR)
+
+
+feedback;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ FEEDBACK_ID                               NOT NULL VARCHAR2(10 CHAR)
+ DESCRIPTION                                        VARCHAR2(255 CHAR)
+ RATING                                             FLOAT(126)
+
+
+cart_order;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CART_ID                                   NOT NULL VARCHAR2(255 CHAR)
+ ORDER_ID                                  NOT NULL VARCHAR2(10 CHAR)
+
+ cart_product;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CART_ID                                   NOT NULL VARCHAR2(10 CHAR)
+ PROD_ID                                   NOT NULL VARCHAR2(255 CHAR)
+
+ invoice;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ INVOICE_ID                                NOT NULL VARCHAR2(255 CHAR)
+ PAYMENT_OPTIONS                                    VARCHAR2(255 CHAR)
+ TRANSACTION_ID                                     NUMBER(19)
+
+ merchant;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ MERCHANT_MOBILE_NO                        NOT NULL VARCHAR2(255 CHAR)
+ EMAIL                                              VARCHAR2(70 CHAR)
+ MERCHANT_NAME                                      VARCHAR2(50 CHAR)
+ MERCHANT_TYPE                                      VARCHAR2(50 CHAR)
+ PASSWORD                                           VARCHAR2(20 CHAR)
+
+ merchant_feedback;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ FEEDBACK_ID                               NOT NULL VARCHAR2(10 CHAR)
+ MERCHANT_ID                               NOT NULL VARCHAR2(255 CHAR)
+ CUSTOMER_ID                               NOT NULL VARCHAR2(10 CHAR)
+
+ merchant_product;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ MERCHANT_ID                               NOT NULL VARCHAR2(10 CHAR)
+ PROD_ID                                   NOT NULL VARCHAR2(255 CHAR)
+merchant_response;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ RESPONSE_ID                               NOT NULL VARCHAR2(10 CHAR)
+ MERCHANT_ID                               NOT NULL VARCHAR2(255 CHAR)
+ CUSTOMER_ID                               NOT NULL VARCHAR2(10 CHAR)
+
+
+orders;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ORDER_ID                                  NOT NULL VARCHAR2(10 CHAR)
+ DELIVER_DATE                                       DATE
+ STATUS                                             VARCHAR2(20 CHAR)
+ PAYMENT_ACC_NO                                     NUMBER(19)
+ PURCHASE_DATE                                      DATE
+ SUBTOTAL                                           FLOAT(126)
+ DELIVERY_ADDRESS                                   VARCHAR2(10 CHAR)
+ INVOICE_INVOICE_ID                                 VARCHAR2(255 CHAR)
+
+ orders_product;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ORDER_ID                                  NOT NULL VARCHAR2(10 CHAR)
+ PROD_ID                                   NOT NULL VARCHAR2(10 CHAR)
+
+ prod_images;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PROD_ID                                   NOT NULL VARCHAR2(10 CHAR)
+ IMAGE_ID                                  NOT NULL VARCHAR2(255 CHAR)
+
+ product;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PROD_ID                                   NOT NULL VARCHAR2(10 CHAR)
+ AVAILABLE_QUANTITY                                 NUMBER(10)
+ INITAL_QUANTITY                                    NUMBER(10)
+ NAME                                               VARCHAR2(70 CHAR)
+ PRICE                                              FLOAT(126)
+ PROD_CATEGORY                                      VARCHAR2(50 CHAR)
+ DISCOUNT                                           FLOAT(126)
+ RATING                                             FLOAT(126)
+ SIZES                                              VARCHAR2(5 CHAR)
+
+product_coupon;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PROD_ID                                   NOT NULL VARCHAR2(10 CHAR)
+ COUPON_ID                                 NOT NULL VARCHAR2(10 CHAR)
+
+
+product_feedback
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PROD_ID                                   NOT NULL VARCHAR2(10 CHAR)
+ FEEDBACK_ID                               NOT NULL VARCHAR2(10 CHAR)
+
+ response;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ RESPONSE_ID                               NOT NULL VARCHAR2(10 CHAR)
+ DESCRIPTION                                        VARCHAR2(255 CHAR)
+ RATING                                             FLOAT(126)
+
+
+
+
+
+ wishlist_product;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PROD_ID                                   NOT NULL VARCHAR2(255 CHAR)
+ WISHLIST_ID                               NOT NULL VARCHAR2(10 CHAR)
+
+
+
+
+
+drop table coupon cascade constraint
+  2  ;
+
+Table dropped.
+
+SQL> drop table feedback;
+
+Table dropped.
+
+SQL> drop table wishlist;
+drop table wishlist
+           *
+ERROR at line 1:
+ORA-02449: unique/primary keys in table referenced by foreign keys
+
+
+SQL> drop table wishlist cascade constraint;
+
+Table dropped.
+
+SQL> drop table customer cascade constraint;
+
+Table dropped.
+
+SQL> drop table savedcard cascade constraint;
+
+Table dropped.
+
+SQL> drop table images cascade constraint;
+
+Table dropped.
+
+SQL> drop table feedback cascade constraint;
+drop table feedback cascade constraint
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> drop table cart_order cascade constraint;
+
+Table dropped.
+
+SQL> drop table cart_product cascade constraint;
+
+Table dropped.
+
+SQL> drop table invoice cascade constraint;
+
+Table dropped.
+
+SQL> drop table merchant cascade constraint;
+
+Table dropped.
+
+SQL> drop table merchant_feedback cascade constraint;
+
+Table dropped.
+
+SQL> drop table merchant_product cascade constraint;
+
+Table dropped.
+
+SQL> drop table merchant_response cascade constraint;
+
+Table dropped.
+
+SQL> drop table orders cascade constraint;
+
+Table dropped.
+
+SQL> drop table orders_product cascade constraint;
+
+Table dropped.
+
+SQL> drop table prod_images cascade constraint;
+
+Table dropped.
+
+SQL> drop table product cascade constraint;
+
+Table dropped.
+
+SQL> drop table product_coupon cascade constraint;
+
+Table dropped.
+
+SQL> drop table product_feedback cascade constraint;
+
+Table dropped.
+
+SQL> drop table response cascade constraint;
+
+Table dropped.
+
+SQL> drop table wishlist_product cascade constraint;
+
+Table dropped.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
