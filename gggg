@@ -44,3 +44,11 @@
 		
 		return list;
 	}
+@Override
+	public void returnGood(String productId) 
+	{
+		String orderId=(String) entityManager.createNativeQuery("Select p.order_id from orders_product p where p.prod_id =:productid").setParameter("productid", productId).getSingleResult();
+		Orders order=entityManager.find(Orders.class, orderId);
+		order.setOrderStatus("Returned");
+		entityManager.merge(order);
+	}
