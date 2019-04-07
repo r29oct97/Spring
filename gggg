@@ -1,0 +1,18 @@
+@RequestMapping(value="/ordered")
+	public String myOrders(Model model,HttpServletRequest request)
+	{
+		System.out.println((String)request.getSession(true).getAttribute("sessionid")+"ssssssssssssssssssssssssssssssssssssssss");
+		List<Product> products=capstoreService.findAllProducts((String)request.getSession().getAttribute("sessionid"));
+		
+		model.addAttribute("products", products);
+		return "/views/customer/ordered.jsp";
+}
+	
+	
+	@RequestMapping(value="/return")
+	public String returnpage(@RequestParam ("id") String productid,Model model)
+	{
+		capstoreService.returnGood(productid);
+		model.addAttribute("prodid", productid);
+		return "/views/customer/returnPage.jsp";
+	}
