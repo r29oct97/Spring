@@ -1,0 +1,24 @@
+	
+			Map<String,Integer> SM=capstoreService.businessAnalyst();
+			
+			
+			for(Entry<String, Integer> m:SM.entrySet())
+			{
+				map = new HashMap<Object,Object>();
+				map.put("label",m.getKey()); 
+				map.put("y", m.getValue());
+				listOfObject.add(map);
+
+			}
+			 	
+				
+				
+			String dataPoints = gsonObj.toJson(listOfObject);
+
+			
+			
+			
+			modelMap.addAttribute("analysis",dataPoints);	
+			
+			request.getSession().setAttribute("sessionid",mobileNo);
+			return "/views/admin/AdminHome.jsp";
