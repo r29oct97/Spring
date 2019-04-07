@@ -16,3 +16,31 @@
 		model.addAttribute("prodid", productid);
 		return "/views/customer/returnPage.jsp";
 	}
+///////////////////////////////////////////////////////////////////////////////////////
+@Override
+	public List<Product> findAllProducts(String mobile) 
+	{
+		List<Product> list=new ArrayList<>();
+		List<String> myProducts=new ArrayList<>();
+		String customer_mobile_no=mobile;
+		Customer customer=entityManager.find(Customer.class, customer_mobile_no);
+		String cartId=customer.getCart().getCartId();
+		
+		System.out.println(cartId+"gdsddddddddddddddddddddddddddddd");
+		
+		List<String> order=entityManager.createNativeQuery("Select p.order_id from cart_order p where p.cart_id=:cartid").setParameter("cartid", cartId).getResultList();
+		for(String orderId: order)
+		{
+			System.out.println(orderId+"ssssssssssssssssssssssssssssss");
+			myProducts.addAll(entityManager.createNativeQuery("Select p.prod_id from orders_product p where p.order_id=:orderId").setParameter("orderId", orderId).getResultList());
+		
+		}
+		
+		for(String productId:myProducts)
+		{	System.out.println(productId);
+			list.addAll(entityManager.createQuery("select p from Product p where p.prodId=:id").setParameter("id", productId).getResultList());
+		}
+		
+		
+		return list;
+	}
