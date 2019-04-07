@@ -27,3 +27,14 @@
 			request.getSession().setAttribute("sessionid",mobileNo);
 			return "/views/admin/AdminHome.jsp";
 		}
+@Override
+	public Map<String, Integer> businessAnalyst() 
+	{
+		Map<String,Integer> map=new HashMap<>();
+		List<Product> products=entityManager.createQuery("select p from Product p").getResultList();
+		for(Product i:products)
+		{
+			map.put(i.getName(), i.getInitialQuantity()-i.getAvailableQuantity());
+		}
+		return map;
+	}
